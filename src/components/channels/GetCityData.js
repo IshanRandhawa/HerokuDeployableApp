@@ -174,7 +174,7 @@ class GetCityData extends Component {
               ""
             )}
           </div>
-          <div class="App-header">
+          <div className="App-header">
             {this.props.loading ? (
               <MDBBtn gradient="purple" type="primary">
                 <LoadingSpinner />

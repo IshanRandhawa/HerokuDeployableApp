@@ -15,7 +15,7 @@ export class Header extends Component {
         <Header>
           <div className="root" />
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-            <Menu.Item key="1">Example Project</Menu.Item>
+            <Menu.Item key="1">Find Youtubers near you</Menu.Item>
           </Menu>
         </Header>
         <Content style={{ padding: "0 50px" }}>

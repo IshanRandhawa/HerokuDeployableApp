@@ -20,7 +20,8 @@ const LoadingSpinner = () => {
       </div>
       <h1>Please wait for the data to be fetched.........</h1>
       <h1>
-        If you're still waiting, A lot of suff is happening in the background
+        If you're still waiting, A lot of suff is happening in the Django
+        backend
       </h1>
     </>
   );
