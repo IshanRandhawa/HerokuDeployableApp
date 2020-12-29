@@ -24,6 +24,7 @@ def logic(querydata, locationdata, max_results):
         global qouta
         # counter for each specific query [game][city] total 54 specific query average results per query = 300 total should be 300*54 == 16,200
         c = 0
+        print(querydata,locationdata,max_results)
         for query in querydata:
             for location in locationdata:
                 print(query, 'locationdatainapi', location[0])
@@ -37,6 +38,8 @@ def logic(querydata, locationdata, max_results):
                             YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=keys[0])
                         print('key changed for id search')
                         qouta = 0
+                    print(query,location[1])
+                    print("please help")
                     res = youtube_object.search().list(q=query,
                                                        type='video',
                                                        part="snippet",
@@ -45,8 +48,10 @@ def logic(querydata, locationdata, max_results):
                                                        locationRadius="50km",
                                                        maxResults=max_results).execute()
                     qouta += 100
-                    print("qouta + 100", qouta)
+                    print(res,"help")
+  
                     for item in res['items']:
+                        print(item)
                         # append channelids to a list
                         idlist[c].append(item['snippet']['channelId'])
                     try:
@@ -98,6 +103,7 @@ def logic(querydata, locationdata, max_results):
                 if not response.get('items'):
                     continue
                 for item in response['items']:
+                    print(item)
                     channel_attrs = {
                         "Channel_id": item['id'],
                         "Channel_name": item['snippet']['title'],
@@ -107,6 +113,7 @@ def logic(querydata, locationdata, max_results):
                         "Channel_query": str(ids[tk][len(ids[tk])-2]),
                         "Channel_city": str(ids[tk][len(ids[tk])-1])
                     }
+                    print(item)
                 try:
                     Channel = channel.objects.create(**channel_attrs)
                     Channel.save()

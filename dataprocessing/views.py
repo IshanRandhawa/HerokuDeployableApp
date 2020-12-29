@@ -64,6 +64,7 @@ def home_view(request):
                        }
             context['Remaining_qouta'] = 490000 - qouta
             context['records'] = len(filtereddata)
+            print("wtffff")
             data = list(filtereddata.values())
             jsons = json.dumps(data)
             print(jsons)

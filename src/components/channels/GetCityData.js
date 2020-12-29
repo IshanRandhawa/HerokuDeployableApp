@@ -107,9 +107,9 @@ class GetCityData extends Component {
         query: this.state.text,
         city:
           this.state.data.main &&
-          ` [['${this.state.data.name}' , '${Number(
+          `[['${this.state.data.name}','${Number(
             this.state.data.coord.lat
-          )} , ${Number(this.state.data.coord.lon)}']]`,
+          )},${Number(this.state.data.coord.lon)}']]`,
         number_queries: this.state.numb,
       };
       this.props.getYtubeData(body);
